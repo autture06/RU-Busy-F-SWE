@@ -3,7 +3,7 @@ import {Button, View} from 'react-native';
 import {styles} from '../styles/styles';
 import { loginWithAuth0 } from '../auth0';
 
-const LoginScreen = ({navigation}) => {
+const Login = ({navigation}) => {
     const handleLogin = async () => {
         try {
             await loginWithAuth0();
