@@ -22,6 +22,11 @@ const Welcome = ({navigation}) => {
                 resizeMode = "contain"
             />
             <Button
+                title = "Login with Auth0"
+                onPress = {handleLogin}
+                style = {styles.button}
+            />
+            <Button
                 title = "Sign Up"
                 onPress = {() => navigation.navigate('SignUp')}
                 style = {styles.button}
