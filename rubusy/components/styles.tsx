@@ -6,13 +6,13 @@ const StatusBarHeight = Constants.statusBarHeight;
 
 //colors 
 export const Colors = {
-    primary: "#ffffff",
-    secondary: "#E5E7EB",
-    tertiary: "#1F2937",
-    darkLight: "#9CA3AF",
-    brand: "#6D28D9",
-    green: "#10B981",
-    red: "#EF4444",
+    primary: "#ffffff", //white
+    secondary: "#E5E7EB", //light gray
+    tertiary: "#1F2937", //black
+    darkLight: "#9CA3AF", //dark gray
+    brand: "#6D28D9", //purple
+    green: "#10B981", //green
+    red: "#EF4444", //red
 };
 
 const {primary, secondary, tertiary, darkLight, brand, green, red} = Colors;
@@ -32,13 +32,13 @@ export const InnerContainer = styled.View`
 
 export const PageLogo = styled.Image`
     width: 250px;
-    height: 200px;
+    height: 300px;
 `;
 
 export const PageTitle = styled.Text`
     font-size: 30px;
     text-align: center;
     font-weight: bold;
-    color: ${brand};
+    color: ${red};
     padding: 10px;
 `;
