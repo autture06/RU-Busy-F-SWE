@@ -43,6 +43,36 @@ export const logoutFromAuth0 = async () => {
       console.error('Error logging out:', error);
     }
   };
-  
 
 
+
+
+/*
+import * as AuthSession from 'expo-auth-session';
+import * as Random from 'expo-random';
+
+const auth0ClientId = 'eMjEgT5C3h83wf9tArSoI1k2ZROcDuUb';
+const auth0Domain = 'dev-ugmyflf2idkyptub.us.auth0.com';
+const redirectUri = AuthSession.makeRedirectUri({ queryParams: {useProxy: 'true' }});
+
+export const loginWithAuth0 = async () => {
+  const state = await Random.getRandomBytesAsync(32);
+  const nonce = await Random.getRandomBytesAsync(32);
+  const authUrl = `https://${auth0Domain}/authorize` +
+    `?response_type=code` +
+    `&client_id=${auth0ClientId}` +
+    `&redirect_uri=${encodeURIComponent(redirectUri)}` +
+    `&state=${encodeURIComponent(state)}` +
+    `&nonce=${encodeURIComponent(nonce)}` +
+    `&scope=openid profile email`;
+
+  const result = await AuthSession.startAsync({ authUrl });
+  if (result.type === 'success') {
+    // Handle successful authentication
+    console.log(result.params.code);
+  } else {
+    // Handle other types of responses or errors
+    console.error(result.type);
+  }
+};
+*/
