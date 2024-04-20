@@ -2,8 +2,8 @@ import * as AuthSession from 'expo-auth-session';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
-const auth0Domain = 'YOUR_AUTH0_DOMAIN';
-const auth0ClientId = 'YOUR_AUTH0_CLIENT_ID';
+const auth0Domain = 'dev-ugmyflf2idkyptub.us.auth0.com';
+const auth0ClientId = 'eMjEgT5C3h83wf9tArSoI1k2ZROcDuUb';
 const redirectUri = AuthSession.makeRedirectUri({ queryParams: { useProxy: 'true' } });
 
 export const loginWithAuth0 = async () => {
@@ -14,7 +14,7 @@ export const loginWithAuth0 = async () => {
     `&scope=openid profile email`;
 
   try {
-    const response = await AuthSession.startAsync({ authUrl });
+    const response = await AuthSession.loadAsync(authUrl);
     if (response.type === 'success') {
       const accessToken = response.params.access_token;
       const idToken = response.params.id_token;
