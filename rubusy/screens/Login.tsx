@@ -5,7 +5,7 @@ import {
     InnerContainer,
     PageLogo,
     PageTitle
-} from './../components/styles'
+} from '../components/styles'
 
 const Login = () => {
     return (
