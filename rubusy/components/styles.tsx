@@ -48,7 +48,7 @@ export const SubTitle = styled.Text`
     margin-bottom: 20px;
     letter-spacing: 1px;
     font-weight: bold;
-    cold: ${tertiary};
+    color: ${tertiary};
 `;
 
 export const StyledFormArea = styled.View`
