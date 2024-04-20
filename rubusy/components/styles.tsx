@@ -15,7 +15,7 @@ export const Colors = {
     red: "#EF4444",
 };
 
-const {primary, secondary, tertiery, darkLight, brand, green, red} = Colors;
+const {primary, secondary, tertiary, darkLight, brand, green, red} = Colors;
 
 export const StyledContainer = styled.View`
     flex: 1;
