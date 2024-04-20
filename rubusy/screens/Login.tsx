@@ -5,7 +5,9 @@ import {
     StyledContainer,
     InnerContainer,
     PageLogo,
-    PageTitle
+    PageTitle,
+    SubTitle,
+    StyledFormArea
 } from '../components/styles'
 
 const Login = () => {
@@ -15,6 +17,7 @@ const Login = () => {
             <InnerContainer>
                 <PageLogo resizeMode = "cover" source = {require('./../assets/images/logo.jpg')}/>
                 <PageTitle>RU Busy</PageTitle>
+                <SubTitle>Account Login</SubTitle>
             </InnerContainer>
         </StyledContainer>
     );
