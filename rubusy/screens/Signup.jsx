@@ -28,16 +28,21 @@ import {
     TextLink,
     TextLinkContent
 } from '../components/styles';
-import { View } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 
-const MyTextInput = ({ label, icon, isPassword, hidePassword, setHidePassword, ...props }) => {
+const MyTextInput = ({ label, icon, isPassword, hidePassword, setHidePassword, isDate, showDatePicker, ...props }) => {
     return (
         <View>
             <LeftIcon>
                 <Octicons name={icon} size={30} color={red} />
             </LeftIcon>
             <StyledInputLabel>{label}</StyledInputLabel>
-            <StyledTextInput {...props} />
+            {!isDate && <StyledTextInput {...props}/>}
+            {isDate && (
+                <TouchableOpacity onPress = {showDatePicker}>
+                    <StyledTextInput {...props}/>
+                </TouchableOpacity>
+            )}
             {isPassword && (
                 <RightIcon onPress = {() => setHidePassword(!hidePassword)}>
                     <Ionicons name = {hidePassword ? 'eye-off' : 'eye'} size = {30} color = {darkLight}/>
@@ -50,25 +55,63 @@ const MyTextInput = ({ label, icon, isPassword, hidePassword, setHidePassword, .
 //Colors
 const { darkLight, red, primary } = Colors;
 
+//Datetimepicker
+import DateTimePicker from '@react-native-community/datetimepicker';
+
 const Signup = () => {
     const [hidePassword, setHidePassword] = useState(true);
+    const [show, setShow] = useState(false);
+    const [date, setDate] = useState(new Date(0, 1, 2000));
+
+//Actual date of birth to be sent
+const [dob, setDob] = useState();
+
+const onChange = (event, selectedDate) => {
+    const currentDate = selectedDate || date;
+    setShow(false);
+    setDate(currentDate);
+    setDob(currentDate);
+}
+
+const showDatePicker = () => {
+    setShow(true);
+}
 
     return (
         <StyledContainer>
             <StatusBar style='dark' />
             <InnerContainer>
-                <PageLogo resizeMode="cover" source={require('./../assets/images/logo.jpg')} />
                 <PageTitle>RU Busy</PageTitle>
                 <SubTitle>Account Signup</SubTitle>
 
+                {show && (
+                <DateTimePicker 
+                    testID = "dateTimePicker"
+                    value = {date}
+                    mode = 'date'
+                    is24Hour = {true}
+                    display = "default"
+                    onChange = {onChange}
+                />
+                )}
+
                 <Formik
-                    initialValues={{ email: '', password: '' }}
+                    initialValues={{ fullName: '', email: '', dateOfBirth: '', password: '', confirmPassword: '' }}
                     onSubmit={(values) => {
                         console.log(values);
                     }}
                 >
                     {({ handleChange, handleBlur, handleSubmit, values }) => (
                         <StyledFormArea>
+                            <MyTextInput
+                                label="Full Name"
+                                icon="person"
+                                placeholder="First Last"
+                                placeholderTextColor={darkLight}
+                                onChangeText={handleChange('fullName')}
+                                onBlur={handleBlur('fullName')}
+                                value={values.fullName}
+                            />
                             <MyTextInput
                                 label="Email Address"
                                 icon="mail"
@@ -78,6 +121,19 @@ const Signup = () => {
                                 onBlur={handleBlur('email')}
                                 value={values.email}
                                 keyboardType="email-address"
+                            />
+
+                            <MyTextInput
+                                label="Date of Birth"
+                                icon="calendar"
+                                placeholder="MM/DD/YYYY"
+                                placeholderTextColor={darkLight}
+                                onChangeText={handleChange('dateOfBirth')}
+                                onBlur={handleBlur('dateOfBirth')}
+                                value={dob ? dob.toDateString() : ''}
+                                isDate = {true}
+                                editable = {false}
+                                showDatePicker = {showDatePicker}
                             />
 
                             <MyTextInput
@@ -93,19 +149,30 @@ const Signup = () => {
                                 hidePassword = {hidePassword}
                                 setHidePassword = {setHidePassword}
                             />
+
+                            <MyTextInput
+                                label="Confirm Password"
+                                icon="lock"
+                                placeholder="********"
+                                placeholderTextColor={darkLight}
+                                onChangeText={handleChange('confirmPassword')}
+                                onBlur={handleBlur('confirmPassword')}
+                                value={values.confirmPassword}
+                                secureTextEntry = {hidePassword}
+                                isPassword = {true}
+                                hidePassword = {hidePassword}
+                                setHidePassword = {setHidePassword}
+                            />
+
                             <MsgBox>...</MsgBox>
                             <StyledButton onPress = {handleSubmit}>
                                 <ButtonText>Login</ButtonText>
                             </StyledButton>
                             <Line />
-                            <StyledButton google = {true} onPress = {handleSubmit}>
-                                <Fontisto name = "google" color = {primary} size = {25}/>
-                                <ButtonText google = {true}>Sign in with Google</ButtonText>
-                            </StyledButton>
                             <ExtraView>
-                                <ExtraText>Don't have an account already? </ExtraText>
+                                <ExtraText>Already have an account? </ExtraText>
                                 <TextLink>
-                                    <TextLinkContent>Signup</TextLinkContent>
+                                    <TextLinkContent>Login</TextLinkContent>
                                 </TextLink>
                             </ExtraView>
                         </StyledFormArea>
