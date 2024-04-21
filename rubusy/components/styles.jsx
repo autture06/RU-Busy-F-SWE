@@ -146,6 +146,6 @@ export const TextLink = styled.TouchableOpacity`
 `;
 
 export const TextLinkContent = styled.Text`
-    color = ${brand};
+    color: ${brand};
     font-size: 15px;
 `;
