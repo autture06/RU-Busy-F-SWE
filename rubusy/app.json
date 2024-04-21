@@ -14,12 +14,6 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "plugins": [
-      "react-native-auth0",
-      {
-        "domain": "dev-ugmyflf2idkyptub.us.auth0.com"
-      }
-    ],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.rubusy"
