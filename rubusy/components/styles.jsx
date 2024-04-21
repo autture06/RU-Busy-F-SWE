@@ -30,7 +30,7 @@ export const InnerContainer = styled.View`
     align-items: center;
 `;
 
-export const welcomeContainer = styled(InnerContainer)`
+export const WelcomeContainer = styled(InnerContainer)`
     padding: 25px;
     padding-top: 10px;
     justify-content: center;
