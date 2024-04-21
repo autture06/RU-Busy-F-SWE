@@ -30,23 +30,6 @@ import {
 } from '../components/styles';
 import { View } from 'react-native';
 
-const MyTextInput = ({ label, icon, isPassword, hidePassword, setHidePassword, ...props }) => {
-    return (
-        <View>
-            <LeftIcon>
-                <Octicons name={icon} size={30} color={red} />
-            </LeftIcon>
-            <StyledInputLabel>{label}</StyledInputLabel>
-            <StyledTextInput {...props} />
-            {isPassword && (
-                <RightIcon onPress = {() => setHidePassword(!hidePassword)}>
-                    <Ionicons name = {hidePassword ? 'eye-off' : 'eye'} size = {30} color = {darkLight}/>
-                </RightIcon>
-            )}
-        </View>
-    );
-};
-
 //Colors
 const { darkLight, red, primary } = Colors;
 
@@ -113,6 +96,23 @@ const Login = () => {
                 </Formik>
             </InnerContainer>
         </StyledContainer>
+    );
+};
+
+const MyTextInput = ({ label, icon, isPassword, hidePassword, setHidePassword, ...props }) => {
+    return (
+        <View>
+            <LeftIcon>
+                <Octicons name={icon} size={30} color={red} />
+            </LeftIcon>
+            <StyledInputLabel>{label}</StyledInputLabel>
+            <StyledTextInput {...props} />
+            {isPassword && (
+                <RightIcon onPress = {() => setHidePassword(!hidePassword)}>
+                    <Ionicons name = {hidePassword ? 'eye-off' : 'eye'} size = {30} color = {darkLight}/>
+                </RightIcon>
+            )}
+        </View>
     );
 };
 
