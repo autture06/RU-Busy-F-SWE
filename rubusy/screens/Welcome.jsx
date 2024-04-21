@@ -43,10 +43,11 @@ const Welcome = () => {
         <>
             <StatusBar style='dark' />
             <InnerContainer>
-                <PageTitle>RU Busy</PageTitle>
-                <SubTitle>Account Login</SubTitle>
-
+                <WelcomeImage resizeMode="cover" source={require('./../assets/images/welcImg.jpg')}/>
                 <WelcomeContainer>
+                <PageTitle welcome = {true}>Welcome!!!</PageTitle>
+                <SubTitle welcome = {true}>First and Last Name</SubTitle>
+                <SubTitle welcome = {true}>first.last@gmail.com</SubTitle>
                         <StyledFormArea>
                         <Avatar resizeMode="cover" source={require('./../assets/images/logo.jpg')} />
                         <Line />
