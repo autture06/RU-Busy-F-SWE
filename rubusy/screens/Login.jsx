@@ -48,7 +48,7 @@ const MyTextInput = ({ label, icon, isPassword, hidePassword, setHidePassword, .
 };
 
 //Colors
-const { brand, darkLight, red, primary } = Colors;
+const { darkLight, red, primary } = Colors;
 
 const Login = () => {
     const [hidePassword, setHidePassword] = useState(true);
