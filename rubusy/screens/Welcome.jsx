@@ -41,7 +41,7 @@ const Welcome = () => {
 
     return (
         <>
-            <StatusBar style='dark' />
+            <StatusBar style='light' />
             <InnerContainer>
                 <WelcomeImage resizeMode="cover" source={require('./../assets/images/welcome.jpg')}/>
                 <WelcomeContainer>
