@@ -49,11 +49,11 @@ const onChange = (event, selectedDate) => {
     setShow(false);
     setDate(currentDate);
     setDob(currentDate);
-}
+};
 
 const showDatePicker = () => {
     setShow(true);
-}
+};
 
     return (
         <StyledContainer>
@@ -68,7 +68,7 @@ const showDatePicker = () => {
                     value = {date}
                     mode = 'date'
                     is24Hour = {true}
-                    display = "default"
+                    display = 'default'
                     onChange = {onChange}
                 />
                 )}
