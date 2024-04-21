@@ -26,7 +26,10 @@ import {
     ExtraView,
     ExtraText,
     TextLink,
-    TextLinkContent
+    TextLinkContent,
+    WelcomeContainer, 
+    WelcomeImage, 
+    Avatar
 } from '../components/styles';
 import { View } from 'react-native';
 
@@ -37,65 +40,23 @@ const Welcome = () => {
     const [hidePassword, setHidePassword] = useState(true);
 
     return (
-        <StyledContainer>
+        <>
             <StatusBar style='dark' />
             <InnerContainer>
-                <PageLogo resizeMode="cover" source={require('./../assets/images/logo.jpg')} />
                 <PageTitle>RU Busy</PageTitle>
                 <SubTitle>Account Login</SubTitle>
 
-                <Formik
-                    initialValues={{ email: '', password: '' }}
-                    onSubmit={(values) => {
-                        console.log(values);
-                    }}
-                >
-                    {({ handleChange, handleBlur, handleSubmit, values }) => (
+                <WelcomeContainer>
                         <StyledFormArea>
-                            <MyTextInput
-                                label="Email Address"
-                                icon="mail"
-                                placeholder="first.last@gmail.com"
-                                placeholderTextColor={darkLight}
-                                onChangeText={handleChange('email')}
-                                onBlur={handleBlur('email')}
-                                value={values.email}
-                                keyboardType="email-address"
-                            />
-
-                            <MyTextInput
-                                label="Password"
-                                icon="lock"
-                                placeholder="********"
-                                placeholderTextColor={darkLight}
-                                onChangeText={handleChange('password')}
-                                onBlur={handleBlur('password')}
-                                value={values.password}
-                                secureTextEntry = {hidePassword}
-                                isPassword = {true}
-                                hidePassword = {hidePassword}
-                                setHidePassword = {setHidePassword}
-                            />
-                            <MsgBox>...</MsgBox>
-                            <StyledButton onPress = {handleSubmit}>
-                                <ButtonText>Login</ButtonText>
+                        <Avatar resizeMode="cover" source={require('./../assets/images/logo.jpg')} />
+                        <Line />
+                            <StyledButton onPress = {() => {}}>
+                                <ButtonText>Logout</ButtonText>
                             </StyledButton>
-                            <Line />
-                            <StyledButton google = {true} onPress = {handleSubmit}>
-                                <Fontisto name = "google" color = {primary} size = {25}/>
-                                <ButtonText google = {true}>Sign in with Google</ButtonText>
-                            </StyledButton>
-                            <ExtraView>
-                                <ExtraText>Don't have an account already? </ExtraText>
-                                <TextLink>
-                                    <TextLinkContent>Signup</TextLinkContent>
-                                </TextLink>
-                            </ExtraView>
                         </StyledFormArea>
-                    )}
-                </Formik>
+                </WelcomeContainer>
             </InnerContainer>
-        </StyledContainer>
+        </>
     );
 };
 
