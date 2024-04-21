@@ -128,7 +128,7 @@ export const Line = styled.View`
 
 export const ExtraView = styled.View`
     justify-content: center;
-    flow-direction: row;
+    flex-direction: row;
     align-items: center;
     padding: 10px;
 `;
