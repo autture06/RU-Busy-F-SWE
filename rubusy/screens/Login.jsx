@@ -5,7 +5,7 @@ import { StatusBar } from 'expo-status-bar';
 import { Formik } from 'formik';
 
 //icons
-import { Octicons, Ionicons } from '@expo/vector-icons';
+import { Octicons, Ionicons, Fontisto } from '@expo/vector-icons';
 
 import {
     StyledContainer,
@@ -20,7 +20,9 @@ import {
     RightIcon,
     StyledButton,
     ButtonText,
-    Colors
+    Colors,
+    MsgBox,
+    Line
 } from '../components/styles';
 import { View } from 'react-native';
 
@@ -42,7 +44,7 @@ const MyTextInput = ({ label, icon, isPassword, hidePassword, setHidePassword, .
 };
 
 //Colors
-const { brand, darkLight, red } = Colors;
+const { brand, darkLight, red, primary } = Colors;
 
 const Login = () => {
     const [hidePassword, setHidePassword] = useState(true);
@@ -87,10 +89,14 @@ const Login = () => {
                                 hidePassword = {hidePassword}
                                 setHidePassword = {setHidePassword}
                             />
+                            <MsgBox>...</MsgBox>
                             <StyledButton onPress = {handleSubmit}>
-                                <ButtonText>
-                                    Login
-                                </ButtonText>
+                                <ButtonText>Login</ButtonText>
+                            </StyledButton>
+                            <Line />
+                            <StyledButton google = {true} onPress = {handleSubmit}>
+                                <Fontisto name = "google" color = {primary} size = {25}/>
+                                <ButtonText google = {true}>Sign in with Google</ButtonText>
                             </StyledButton>
                         </StyledFormArea>
                     )}
