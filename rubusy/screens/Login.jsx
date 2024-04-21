@@ -18,6 +18,8 @@ import {
     StyledInputLabel,
     StyledTextInput,
     RightIcon,
+    StyledButton,
+    ButtonText,
     Colors
 } from '../components/styles';
 import { View } from 'react-native';
@@ -85,6 +87,11 @@ const Login = () => {
                                 hidePassword = {hidePassword}
                                 setHidePassword = {setHidePassword}
                             />
+                            <StyledButton onPress = {handleSubmit}>
+                                <ButtonText>
+                                    Login
+                                </ButtonText>
+                            </StyledButton>
                         </StyledFormArea>
                     )}
                 </Formik>
