@@ -32,7 +32,7 @@ export const InnerContainer = styled.View`
 
 export const PageLogo = styled.Image`
     width: 250px;
-    height: 250px;
+    height: 270px;
 `;
 
 export const PageTitle = styled.Text`
