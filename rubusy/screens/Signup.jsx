@@ -36,6 +36,9 @@ const { darkLight, red, primary } = Colors;
 //Datetimepicker
 import DateTimePicker from '@react-native-community/datetimepicker';
 
+//keyboard avoiding view
+import KeyboardAvoidingWrapper from './../components/KeyboardAvoidingWrapper';
+
 const Signup = () => {
     const [hidePassword, setHidePassword] = useState(true);
     const [show, setShow] = useState(false);
