@@ -13,6 +13,6 @@ const KeyboardAvoidingWrapper = ({children}) => {
             </ScrollView>
         </KeyboardAvoidingView>
     );
-}
+};
 
 export default KeyboardAvoidingWrapper;
