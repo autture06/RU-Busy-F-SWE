@@ -106,18 +106,7 @@ const showDatePicker = () => {
                                     keyboardType="email-address"
                                 />
 
-                                <MyTextInput
-                                    label="Date of Birth"
-                                    icon="calendar"
-                                    placeholder="MM/DD/YYYY"
-                                    placeholderTextColor={darkLight}
-                                    onChangeText={handleChange('dateOfBirth')}
-                                    onBlur={handleBlur('dateOfBirth')}
-                                    value={dob ? dob.toDateString() : ''}
-                                    isDate = {true}
-                                    editable = {false}
-                                    showDatePicker = {showDatePicker}
-                                />
+                                
 
                                 <MyTextInput
                                     label="Password"
