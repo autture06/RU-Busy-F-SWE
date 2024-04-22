@@ -6,6 +6,14 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "plugins": [
+      [
+        "react-native-auth0",
+        {
+          "domain": "{yourDomain}"
+        }
+      ]
+    ],
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -14,6 +22,9 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.rubusy"
@@ -24,9 +35,6 @@
         "backgroundColor": "#ffffff"
       },
       "package": "com.rubusy"
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
     }
   }
 }
